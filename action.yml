@@ -1,0 +1,31 @@
+name: Find Current Pull Request
+author: step-security
+description: Find a PR associated with the current commit.
+inputs:
+  github-token:
+    required: false
+    description: The GitHub token used to create an authenticated client.  Defaults to github provided token.
+    default: ${{ github.token }}
+  state:
+    required: false
+    description: The state of the PR to return.  One of "open", "closed", or "all".
+    default: 'open'
+  sha:
+    required: false
+    description: SHA to get PR for. Defaults to current pull request SHA or current SHA.
+    default: ${{ github.event.pull_request.head.sha || github.sha }}
+outputs:
+  pr:
+    description: The PR if one was found. (e.g. '345' for #345) [Deprecated: Please use number instead]
+  number:
+    description: The PR's number if the PR was found (e.g. '345' for #345)
+  title:
+    description: The PR's title if the PR was found
+  body:
+    description: The PR's body if the PR was found
+runs:
+  using: node20
+  main: 'dist/index.js'
+branding:
+  icon: git-pull-request
+  color: blue
