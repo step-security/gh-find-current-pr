@@ -28,13 +28,17 @@
         "url": "https://github.com/step-security/gh-find-current-pr/issues"
     },
     "homepage": "https://github.com/step-security/gh-find-current-pr#readme",
+    "type": "module",
+    "engines": {
+        "node": ">=24"
+    },
     "dependencies": {
-        "@actions/core": "^2.0.0",
-        "@actions/github": "^6.0.1",
-        "axios": "^1.11.0"
+        "@actions/core": "^3.0.0",
+        "@actions/github": "^9.0.0",
+        "axios": "^1.21.0"
     },
     "devDependencies": {
-        "@types/node": "^18.11.9",
+        "@types/node": "22.9.3",
         "@typescript-eslint/eslint-plugin": "^5.40.0",
         "@typescript-eslint/parser": "^5.42.0",
         "@vercel/ncc": "^0.34.0",
